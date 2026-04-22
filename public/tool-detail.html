@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool | PDF Tools Pro</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fa-solid fa-file-pdf text-gradient"></i>
+                PDF Tools Pro
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="/tools.html" class="active">Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-category">
+                                <h4>Convert</h4>
+                                <div class="dropdown-links">
+                                    <a href="/tool-detail.html?tool=jpg-to-pdf"><i class="fa-solid fa-image"></i> JPG to PDF</a>
+                                    <a href="/tool-detail.html?tool=word-to-pdf"><i class="fa-solid fa-file-word"></i> Word to PDF</a>
+                                    <a href="/tool-detail.html?tool=pdf-to-jpg"><i class="fa-solid fa-file-image"></i> PDF to JPG</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-category">
+                                <h4>Optimize & Edit</h4>
+                                <div class="dropdown-links">
+                                    <a href="/tool-detail.html?tool=compress-pdf"><i class="fa-solid fa-compress"></i> Compress PDF</a>
+                                    <a href="/tool-detail.html?tool=merge-pdf"><i class="fa-solid fa-object-group"></i> Merge PDF</a>
+                                    <a href="/tool-detail.html?tool=split-pdf"><i class="fa-solid fa-cut"></i> Split PDF</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-category">
+                                <h4>Security</h4>
+                                <div class="dropdown-links">
+                                    <a href="/tool-detail.html?tool=protect-pdf"><i class="fa-solid fa-lock"></i> Protect PDF</a>
+                                    <a href="/tool-detail.html?tool=unlock-pdf"><i class="fa-solid fa-lock-open"></i> Unlock PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/portfolio.html">Developer</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Dynamic Header based on selected tool -->
+        <div class="section-header" style="margin-top: 4rem;">
+            <h1 id="toolTitle" class="text-gradient" style="font-size: 3rem; margin-bottom: 1rem;">Process PDF</h1>
+            <p id="toolDesc" style="color: var(--text-secondary); font-size: 1.2rem;">Upload your document to begin processing.</p>
+        </div>
+
+        <!-- Drag & Drop Uploader -->
+        <div id="dropZone" class="upload-container">
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Choose files or drop them here</h3>
+            <p style="color: var(--text-secondary);">Max file size 50MB</p>
+            
+            <input type="file" id="fileInput" accept=".pdf, .jpg, .jpeg, .png, .doc, .docx, .ppt, .pptx, .xls, .xlsx">
+            <button class="btn btn-primary upload-btn" onclick="document.getElementById('fileInput').click()">Select File</button>
+
+            <!-- Processing Progress -->
+            <div id="progressArea" class="progress-area">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span id="progressText">Uploading...</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progressBar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- Result Actions -->
+            <div id="resultArea" style="display: none; margin-top: 2rem;">
+                <h3 style="color: #10b981; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Processing Complete!</h3>
+                <a id="downloadBtn" href="#" class="btn btn-primary" download><i class="fa-solid fa-download" style="margin-right: 8px;"></i> Download File</a>
+                <button class="btn btn-outline" style="margin-left: 1rem;" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Process Another</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="/" class="logo" style="font-size: 1.25rem;">
+                    <i class="fa-solid fa-file-pdf text-gradient"></i>
+                    PDF Tools Pro
+                </a>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.85rem;">© 2026 Rehmanullah. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/contact.html">Contact Us</a>
+                <a href="/about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="/js/main.js"></script>
+    <script>
+        // Set dynamic tool info on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const tool = params.get('tool');
+            
+            const toolMap = {
+                'jpg-to-pdf': { title: 'JPG to PDF', desc: 'Convert JPG images to PDF in seconds.' },
+                'word-to-pdf': { title: 'Word to PDF', desc: 'Convert your DOCX files to PDF.' },
+                'compress-pdf': { title: 'Compress PDF', desc: 'Reduce file size while maintaining quality.' },
+                'merge-pdf': { title: 'Merge PDF', desc: 'Combine multiple PDFs into one document.' },
+                'split-pdf': { title: 'Split PDF', desc: 'Extract pages from your PDF.' },
+                'protect-pdf': { title: 'Protect PDF', desc: 'Add a password to secure your document.' }
+            };
+
+            if (tool && toolMap[tool]) {
+                document.getElementById('toolTitle').textContent = toolMap[tool].title;
+                document.getElementById('toolDesc').textContent = toolMap[tool].desc;
+            }
+        });
+    </script>
+</body>
+</html>

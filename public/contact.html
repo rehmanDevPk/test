@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | PDF Tools Pro</title>
+    <meta name="description" content="Get in touch with the PDF Tools Pro team for support, feedback, or business inquiries.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            padding: 4rem 2rem;
+            align-items: start;
+        }
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.25rem;
+        }
+        .contact-form {
+            background: var(--glass-bg);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            border-radius: 0.75rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fa-solid fa-file-pdf text-gradient"></i>
+                PDF Tools Pro
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="/tools.html">Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-category">
+                                <h4>Convert</h4>
+                                <div class="dropdown-links">
+                                    <a href="/tool-detail.html?tool=jpg-to-pdf"><i class="fa-solid fa-image"></i> JPG to PDF</a>
+                                    <a href="/tool-detail.html?tool=word-to-pdf"><i class="fa-solid fa-file-word"></i> Word to PDF</a>
+                                    <a href="/tool-detail.html?tool=pdf-to-jpg"><i class="fa-solid fa-file-image"></i> PDF to JPG</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-category">
+                                <h4>Optimize & Edit</h4>
+                                <div class="dropdown-links">
+                                    <a href="/tool-detail.html?tool=compress-pdf"><i class="fa-solid fa-compress"></i> Compress PDF</a>
+                                    <a href="/tool-detail.html?tool=merge-pdf"><i class="fa-solid fa-object-group"></i> Merge PDF</a>
+                                    <a href="/tool-detail.html?tool=split-pdf"><i class="fa-solid fa-cut"></i> Split PDF</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-category">
+                                <h4>Security</h4>
+                                <div class="dropdown-links">
+                                    <a href="/tool-detail.html?tool=protect-pdf"><i class="fa-solid fa-lock"></i> Protect PDF</a>
+                                    <a href="/tool-detail.html?tool=unlock-pdf"><i class="fa-solid fa-lock-open"></i> Unlock PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html" class="active">Contact</a></li>
+                <li><a href="/portfolio.html">Developer</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container contact-container">
+        <div class="contact-info">
+            <h2 class="text-gradient">Get in Touch</h2>
+            <p>Have questions about our tools or need help with a specific document? Our team is here to help you get the most out of PDF Tools Pro.</p>
+            
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                    <div style="font-weight: 600;">Email Us</div>
+                    <div style="color: var(--text-secondary);">rehmanullahkpk@gmail.com</div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                    <div style="font-weight: 600;">Call Us</div>
+                    <div style="color: var(--text-secondary);">+92 314 0332576</div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                    <div style="font-weight: 600;">Office</div>
+                    <div style="color: var(--text-secondary);">Badrashi, Nowshera, KPK</div>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-control" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" class="form-control" required placeholder="How can we help?">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" rows="5" required placeholder="Describe your inquiry..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="/" class="logo" style="font-size: 1.25rem;">
+                    <i class="fa-solid fa-file-pdf text-gradient"></i>
+                    PDF Tools Pro
+                </a>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.85rem;">© 2026 Rehmanullah. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/contact.html">Contact Us</a>
+                <a href="/about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
